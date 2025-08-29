@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Marks Percentage Calculator</title>
+</head>
+<body style="font-family: Arial; text-align:center; margin-top:20px;">
+    <h2>Marks Percentage Calculator (Multiple Subjects)</h2>
+    <form method="POST" action="/calculate">
+        <table border="1" style="margin:auto; padding:10px;">
+            <tr>
+                <th>Subject</th>
+                <th>Obtained Marks</th>
+                <th>Total Marks</th>
+            </tr>
+            <tr>
+                <td>Physics</td>
+                <td><input type="number" name="physics_obtained" required></td>
+                <td><input type="number" name="physics_total" required></td>
+            </tr>
+            <tr>
+                <td>Chemistry</td>
+                <td><input type="number" name="chemistry_obtained" required></td>
+                <td><input type="number" name="chemistry_total" required></td>
+            </tr>
+            <tr>
+                <td>Biology</td>
+                <td><input type="number" name="biology_obtained" required></td>
+                <td><input type="number" name="biology_total" required></td>
+            </tr>
+            <tr>
+                <td>Maths</td>
+                <td><input type="number" name="maths_obtained" required></td>
+                <td><input type="number" name="maths_total" required></td>
+            </tr>
+            <tr>
+                <td>English</td>
+                <td><input type="number" name="english_obtained" required></td>
+                <td><input type="number" name="english_total" required></td>
+            </tr>
+        </table>
+        <br>
+        <button type="submit">Calculate Percentage</button>
+    </form>
+
+    {% if error %}
+        <h3 style="color:red;">{{ error }}</h3>
+    {% endif %}
+
+    {% if percentage is defined %}
+        <h3>Total Obtained: {{ total_obtained }} / {{ total_possible }}</h3>
+        <h2>Percentage: {{ percentage }}%</h2>
+    {% endif %}
+</body>
+</html>
